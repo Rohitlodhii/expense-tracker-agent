@@ -19,4 +19,5 @@ uploaded_file = file_uploader(key="main_uploader")
 
 if uploaded_file:
     st.divider()
-    st.info("File is acknowledged")
+    st.info("File is acknowledged");
+    st.text(uploaded_file.type)
