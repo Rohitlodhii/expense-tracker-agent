@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 
 from helpers.file import format_size
+from helpers.ocr import ocr_file
 
 
 def file_uploader(key="file_uploader"):
@@ -13,6 +14,8 @@ def file_uploader(key="file_uploader"):
         accept_multiple_files=False,
         key=key,
     )
+
+    ocr_text = None
 
     if uploaded_file is not None:
         st.success("Successfully uploaded file!")
@@ -40,5 +43,6 @@ def file_uploader(key="file_uploader"):
                     )
 
         # OCR processing section
+        ocr_text = ocr_file(uploaded_file, key=f"{key}_ocr")
 
-    return uploaded_file
+    return uploaded_file, ocr_text

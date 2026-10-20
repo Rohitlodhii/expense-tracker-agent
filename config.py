@@ -13,4 +13,4 @@ OPENAI_MODEL=os.environ["OPENAI_MODEL"]
 # return the api as a function
 
 def get_api_key() -> SecretStr:
-    return SecretStr(os.environ["OPENAI_API_URL"])
+    return SecretStr(os.environ.get("OPENAI_API_KEY", os.environ.get("OPENAI_API_URL", "")))
