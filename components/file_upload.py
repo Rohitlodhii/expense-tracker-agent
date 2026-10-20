@@ -39,4 +39,6 @@ def file_uploader(key="file_uploader"):
                         mime=uploaded_file.type,
                     )
 
+        # OCR processing section
+
     return uploaded_file
